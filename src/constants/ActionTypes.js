@@ -1,0 +1,5 @@
+export const CREATE_NEW_BUS = 'CREATE_NEW_BUS';
+export const MOVE_EXISTING_BUS = 'MOVE_EXISTING_BUS';
+export const SET_NOTIFICATION = 'SET_NOTIFICATION';
+export const SET_REPORT = 'SET_REPORT';
+export const CLEAR_ALL_BUSES = 'CLEAR_ALL_BUSES';

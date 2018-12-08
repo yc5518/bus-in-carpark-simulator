@@ -4,7 +4,8 @@ import classnames from 'classnames';
 
 const Bus = ({className }) => {
     const busClass = classnames('bus', className);
-    return (<div className={busClass}>
+    return (
+    <div className={busClass}>
       <p>BUS</p>
     </div>);
   };
