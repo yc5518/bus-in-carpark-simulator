@@ -25,7 +25,7 @@ const BasicController = (WrappedComponent, mapStateToProps) => {
           return changeBusPos({
             posX: selectedBus.posX,
             posY: selectedBus.posY,
-            direction: Utils.rotateBus(selectedBus.direction, isClockwise),
+            direction: Utils.turnBus(selectedBus.direction, isClockwise),
           }, "1");
         }
       }

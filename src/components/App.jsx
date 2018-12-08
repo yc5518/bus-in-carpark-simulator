@@ -7,40 +7,47 @@ import { clearAllBuses } from '../actions';
 
 class App extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-
-        };
+      super(props);
+      this.state = {
+  
+      };
     }
-
+  
     render() {
-        const { parkNum } = this.props;
-        return (
-            <div>
-                <div className={'row'}>
-                    <Carpark parkNum={parkNum} containerClass={'offset-4'} />
-                </div>
-                <div className={'reset offset-4'} style={{ padding: 4 }}>
-                    <button className={'btn btn-primary'} >
-                        Reset
-                    </button>
-                </div>
-                <BusController />
-            </div>
-        );
+      const { buses, parkNum, reset} = this.props;
+      return (
+        <div>
+          <div className={'row'}>
+            <Carpark buses={buses} parkNum={parkNum} containerClass={'offset-3'} />
+          </div>
+          <div className={'reset offset-3'} style={{ padding: 4 }}>
+            <button className={'btn btn-primary'} onClick={() => { reset(); }}>
+              Reset
+                </button>
+          </div>
+          <BusController />
+        </div>
+      );
     }
-}
-
-App.propTypes = {
+  }
+  
+  App.propTypes = {
+    buses: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string,
+      posX: PropTypes.number,
+      posY: PropTypes.number,
+      direction: PropTypes.string,
+    })),
     parkNum: PropTypes.number,
-};
-
-const mapStateToProps = state => ({
+  };
+  
+  const mapStateToProps = state => ({
+    buses: state.buses,
     parkNum: state.parkNum,
-});
-
-const mapDispatchToProps = dispatch => ({
-    restore() {
+  });
+  
+  const mapDispatchToProps = dispatch => ({
+    reset() {
       dispatch(clearAllBuses());
     },
   });

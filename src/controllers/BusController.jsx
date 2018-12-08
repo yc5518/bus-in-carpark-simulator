@@ -64,10 +64,10 @@ class BusController extends Component {
             <button className={'btn btn-primary'} onClick={() => { onMoveBus(true); }}>
               {LABELS.BUS_MOVE}
             </button>
-            <button className={'btn btn-primary'} onClick={() => { onTurnBus(false); }}>
+            <button className={'btn btn-primary'} onClick={() => { onTurnBus(true); }}>
               {LABELS.BUS_TURN_LEFT}
             </button>
-            <button className={'btn btn-primary'} onClick={() => { onTurnBus(true); }}>
+            <button className={'btn btn-primary'} onClick={() => { onTurnBus(false); }}>
               {LABELS.BUS_TURN_RIGHT}
             </button>
         </div>

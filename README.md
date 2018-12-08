@@ -1,45 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-# bus-in-carpark-simulator
+# Bus in car park simulator
 
-## Available Scripts
+- The application is a simulation of a robot operated bus moving in a carpark, of dimensions 5 units x 5 units.
+- There are no other obstructions in the carpark.
+- The bus is free to roam around the carpark, but must be prevented from exiting the
+carpark. Any movement that would result in the bus leaving the carpark must be prevented, however further valid movement commands must still be allowed.
 
-In the project directory, you can run:
+- The application is a simulation of a robot operated bus moving in a carpark, of dimensions 5 units x 5 units.
+- There are no other obstructions in the carpark.
+- The bus is free to roam around the carpark, but must be prevented from exiting the
+carpark. Any movement that would result in the bus leaving the carpark must be prevented, however further valid movement commands must still be allowed.
 
-### `npm start`
+The application should be able to read in any one of the following commands:
+##### PLACE X,Y,F
+##### MOVE
+##### LEFT
+##### RIGHT
+##### REPORT
+- PLACE will put the bus in the carpark in position X,Y and facing NORTH, SOUTH, EAST or WEST.
+- The origin (0,0) can be considered to be the SOUTH WEST most corner.
+- The first valid command to the bus is a PLACE command, after that, any sequence of
+commands may be issued, in any order, including another PLACE command. The application should discard all commands in the sequence until a valid PLACE command has been executed.
+- MOVE will move the bus one unit forward in the direction it is currently facing.
+- LEFT and RIGHT will rotate the bus 90 degrees in the specified direction without
+changing the position of the bus.
+- REPORT will announce the X,Y and F of the bus. This can be in any form, but
+standard output is sufficient.
+- A bus that is not in the carpark should ignore the MOVE, LEFT, RIGHT and REPORT
+commands.
+- Input can be from a file, or from standard input, as the developer chooses.
+- Provide test data to exercise the application.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Examples:  
+a)
+PLACE 0,0,NORTH
+MOVE
+REPORT 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+**Output:** 0,1,NORTH  
 
-### `npm test`
+b)  
+PLACE 0,0,NORTH  
+LEFT  
+REPORT  
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Output:** 0,0,WEST
 
-### `npm run build`
+c)  
+PLACE 1,2,EAST  
+MOVE  
+MOVE  
+LEFT  
+MOVE  
+REPORT  
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Output:** 3,3,NORTH
+---
+## Getting started
+### Tech Stack
+This application is based on the following tools/libraries:
+- UI Render: **React/Redux, SASS, Bootstrap**.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Setup
+1. Clone the project from Git.
+2. Node installed
+3. Switch to top level folder.
+4. Run `npm install` 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Run
+Run `npm run start`
+Have a look at http://localhost:3000 in your browser.

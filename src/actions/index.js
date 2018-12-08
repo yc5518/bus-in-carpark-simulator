@@ -17,7 +17,10 @@ export const clearAllBuses = () => ({
 });
 
 export const placeBus = (position,id) => (dispatch, getState) => {
-  if (id) {
+  const {parkNum } = getState();
+  if (!Utils.checkInside(position, parkNum)) {
+    
+  } else if (id) {
     console.log("Move id " + id + " TO " + position.posX + ", " + position.posY)
     dispatch(moveExistingBus(position, id));
   } else if (Utils.isValidDirection(position.direction)) {
