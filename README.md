@@ -61,12 +61,12 @@ This application is based on the following tools/libraries:
 - UI Render: **React/Redux, SASS, Bootstrap**.
 
 ### Setup
-1. Clone the project from Git.
-2. Node installed
+1. Clone the project from Git Repo.
+2. Have Node installed
 3. Switch to top level folder.
 4. Run `npm install` 
 
 
 ### Run
-Run `npm run start`
+Run `npm run start`。
 Have a look at http://localhost:3000 in your browser.
